@@ -109,3 +109,21 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   içine Task 7'den önce, erkenden eklendi (aksi halde Task 4-6 boyunca
   aynı "beyaz üstüne beyaz" sorunu tekrar tekrar yaşanırdı).
 - **Sıradaki adım:** Task 4 — Film arama (`src/components/SearchBar.js`).
+
+## 2026-09-02 — Vercel Deploy Sorunu Çözüldü
+
+- Proje Vercel'e bağlıydı ama build'ler `TMDB_API_KEY` ortam
+  değişkeni eksik olduğu için başarısız oluyordu (`.env.local` bilerek
+  git'e gitmediği için Vercel'in de anahtardan haberi yoktu — beklenen
+  bir durum, ilk deploy'da hep yapılması gereken bir adım).
+- Vercel Dashboard > Settings > Environment Variables kısmına
+  `TMDB_API_KEY` "Secret" tipinde eklendi (Production/Preview/Dev
+  hepsi işaretlendi).
+- Küçük bir tuzağa düşüldü: "Redeploy" butonu tıklanan spesifik
+  deployment'ı yeniden derler, GitHub'daki en son commit'i otomatik
+  çekmez. İlk redeploy yanlışlıkla eski (Task 2) commit'e denk geldi,
+  asıl en son commit'in (Task 3) başarısız deployment'ı ayrıca
+  redeploy edilerek düzeltildi.
+- Artık Vercel'deki canlı site, en son kodla (koyu tema, film ızgarası,
+  orijinal başlıklar) uyumlu.
+- **Sıradaki adım:** Task 4 — Film arama (`src/components/SearchBar.js`).
