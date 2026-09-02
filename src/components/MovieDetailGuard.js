@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import { getPosterUrl } from "@/lib/tmdb";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default function MovieDetailGuard({ movie }) {
   const { user, loading } = useAuth();
@@ -34,6 +35,7 @@ export default function MovieDetailGuard({ movie }) {
           Türler: {movie.genres?.map((g) => g.name).join(", ")}
         </p>
         <p className="text-gray-200 mb-6">{movie.overview}</p>
+        <FavoriteButton movie={movie} />
       </div>
     </main>
   );
