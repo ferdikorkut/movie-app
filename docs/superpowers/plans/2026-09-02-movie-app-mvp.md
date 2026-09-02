@@ -72,11 +72,11 @@ git commit -m "Next.js + Tailwind proje iskeletini oluştur"
 **Interfaces:**
 - Üretir: `getPopularMovies(page)`, `searchMovies(query, page)`, `getMovieDetails(id)`, `getPosterUrl(posterPath, size)` — Task 3, 4, 8 bu fonksiyonları kullanacak. Her biri TMDB'nin ham JSON cevabını (`{ results: [...] }` veya tek film objesi) döner.
 
-- [ ] **Step 1: TMDB hesabı ve API anahtarı al**
+- [x] **Step 1: TMDB hesabı ve API anahtarı al**
 
 https://www.themoviedb.org adresinde ücretsiz hesap oluştur, hesap ayarlarından "API" sekmesine gidip bir "API Key (v3 auth)" talep et. Bu adım tarayıcıda manuel yapılır, kod gerekmez.
 
-- [ ] **Step 2: `.env.local` dosyasını oluştur**
+- [x] **Step 2: `.env.local` dosyasını oluştur**
 
 Proje kökünde `.env.local`:
 
@@ -84,7 +84,7 @@ Proje kökünde `.env.local`:
 TMDB_API_KEY=buraya_kendi_anahtarini_yapistir
 ```
 
-- [ ] **Step 3: `.gitignore` içinde `.env.local` olduğunu doğrula**
+- [x] **Step 3: `.gitignore` içinde `.env.local` olduğunu doğrula**
 
 ```bash
 grep env.local .gitignore
@@ -92,7 +92,7 @@ grep env.local .gitignore
 
 Beklenen: `.env*.local` satırı görünür (create-next-app bunu otomatik ekler).
 
-- [ ] **Step 4: `src/lib/tmdb.js` dosyasını oluştur**
+- [x] **Step 4: `src/lib/tmdb.js` dosyasını oluştur**
 
 ```js
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
@@ -135,7 +135,7 @@ export function getPosterUrl(posterPath, size = "w500") {
 }
 ```
 
-- [ ] **Step 5: `src/app/page.js` içinde geçici olarak dene**
+- [x] **Step 5: `src/app/page.js` içinde geçici olarak dene**
 
 `src/app/page.js` içeriğini geçici olarak şuna çevir:
 
@@ -148,11 +148,11 @@ export default async function HomePage() {
 }
 ```
 
-- [ ] **Step 6: Tarayıcıda doğrula**
+- [x] **Step 6: Tarayıcıda doğrula**
 
 `npm run dev` çalışırken `http://localhost:3000` adresine git. Beklenen: ilk popüler filmin JSON verisi (başlık, özet vb.) ekranda görünür. Hata alırsan API anahtarını kontrol et.
 
-- [ ] **Step 7: Commit at**
+- [x] **Step 7: Commit at**
 
 ```bash
 git add src/lib/tmdb.js .env.local src/app/page.js

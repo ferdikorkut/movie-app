@@ -67,3 +67,24 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
 - Tasarım belgesi ve uygulama planındaki tüm dosya yolları (`Create:`,
   `Modify:`, `git add` komutları) `src/` önekiyle güncellendi.
 - **Sıradaki adım:** Task 2 — TMDB API bağlantısı (`src/lib/tmdb.js`).
+
+## 2026-09-02 — GitHub'a İlk Push
+
+- `origin` (https://github.com/ferdikorkut/movie-app.git) zaten tanımlıydı
+  ama upstream bağlantısı kopmuştu ("upstream is gone").
+- `git push -u origin main` ile ilk push yapıldı, `main` branch'i artık
+  `origin/main`'i takip ediyor.
+- VSCode'daki Commit/Push/Sync farkı ve merge conflict (çakışma) çözümü
+  konuşuldu (bkz. sohbet geçmişi).
+
+## 2026-09-02 — Task 2 Tamamlandı: TMDB API Bağlantısı
+
+- Kullanıcı themoviedb.org'dan API anahtarı aldı, `.env.local`'a eklendi
+  (git'e gitmediği doğrulandı: `git check-ignore -v .env.local`).
+- `src/lib/tmdb.js` oluşturuldu: `getPopularMovies`, `searchMovies`,
+  `getMovieDetails`, `getPosterUrl`.
+- Küçük bir hata yakalandı ve düzeltildi: geçici test sayfasında
+  `text-white` sınıfı açık modda beyaz zemin üzerinde beyaz yazıya
+  (görünmez metin) sebep oluyordu — kaldırıldı.
+- **Sıradaki adım:** Task 3 — Film kartı ve popüler filmler ızgarası
+  (`src/components/MovieCard.js`, `src/components/MovieGrid.js`).
