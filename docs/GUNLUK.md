@@ -88,3 +88,24 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   (görünmez metin) sebep oluyordu — kaldırıldı.
 - **Sıradaki adım:** Task 3 — Film kartı ve popüler filmler ızgarası
   (`src/components/MovieCard.js`, `src/components/MovieGrid.js`).
+
+## 2026-09-02 — Task 3 Tamamlandı: Popüler Filmler Izgarası
+
+- `src/components/MovieCard.js` ve `src/components/MovieGrid.js`
+  oluşturuldu, `src/app/page.js` gerçek haline getirildi.
+- İki hata bulundu ve düzeltildi:
+  1. **Koyu tema görünmüyordu:** `globals.css`'te create-next-app'in
+     bıraktığı katmansız (`@layer` dışı) `body { background: ...; }`
+     kuralı, Tailwind'in katmanlı `bg-gray-950`/`text-white` utility
+     class'larını CSS cascade layers kuralı gereği eziyordu (katmansız
+     kurallar her zaman katmanlı kurallardan kazanır, specificity'den
+     bağımsız). Kural silindi, `layout.js`'teki class'lar artık
+     kazanıyor.
+  2. **Film başlıkları Türkçe geliyordu:** `lib/tmdb.js`'teki
+     `language=tr-TR` parametresi TMDB'nin çevrilmiş verisini
+     getiriyordu. Kullanıcı orijinal başlıkları tercih etti, parametre
+     kaldırıldı.
+  Bu düzeltme sırasında koyu tema (bg-gray-950, text-white) `layout.js`
+  içine Task 7'den önce, erkenden eklendi (aksi halde Task 4-6 boyunca
+  aynı "beyaz üstüne beyaz" sorunu tekrar tekrar yaşanırdı).
+- **Sıradaki adım:** Task 4 — Film arama (`src/components/SearchBar.js`).

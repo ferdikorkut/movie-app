@@ -174,7 +174,7 @@ git commit -m "TMDB API bağlantısını kur (src/lib/tmdb.js)"
 - Tüketir: Task 2'den `getPopularMovies`, `getPosterUrl`.
 - Üretir: `<MovieCard movie={movie} />` (bekler: `movie.id`, `movie.title`, `movie.poster_path`), `<MovieGrid movies={movies} />` — Task 4 ve Task 10 bu bileşenleri tekrar kullanacak.
 
-- [ ] **Step 1: `src/components/MovieCard.js` oluştur**
+- [x] **Step 1: `src/components/MovieCard.js` oluştur**
 
 ```jsx
 import Link from "next/link";
@@ -203,7 +203,7 @@ export default function MovieCard({ movie }) {
 }
 ```
 
-- [ ] **Step 2: `src/components/MovieGrid.js` oluştur**
+- [x] **Step 2: `src/components/MovieGrid.js` oluştur**
 
 ```jsx
 import MovieCard from "./MovieCard";
@@ -223,7 +223,7 @@ export default function MovieGrid({ movies }) {
 }
 ```
 
-- [ ] **Step 3: `src/app/page.js` dosyasını gerçek haline getir**
+- [x] **Step 3: `src/app/page.js` dosyasını gerçek haline getir**
 
 ```jsx
 import MovieGrid from "@/components/MovieGrid";
@@ -241,11 +241,11 @@ export default async function HomePage() {
 }
 ```
 
-- [ ] **Step 4: Tarayıcıda doğrula**
+- [x] **Step 4: Tarayıcıda doğrula**
 
 `http://localhost:3000` adresine git. Beklenen: popüler filmlerin poster ızgarası görünür, bir filme tıklayınca `/film/{id}` adresine gidilir (şu an 404 verecek, normal — Task 8'de o sayfayı yapacağız).
 
-- [ ] **Step 5: Commit at**
+- [x] **Step 5: Commit at**
 
 ```bash
 git add src/components/MovieCard.js src/components/MovieGrid.js src/app/page.js
