@@ -160,3 +160,16 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   doğrulandı.
 - **Sıradaki adım:** Task 7 — Header (üst menü)
   (`src/components/Header.js`).
+
+## 2026-09-02 — Task 7 Tamamlandı: Header (Üst Menü)
+
+- `src/components/Header.js` oluşturuldu, `layout.js`'e eklendi.
+- Kullanıcı geri bildirimiyle iki ayarlama yapıldı: (1) menü içeriği
+  film ızgarasıyla aynı genişlikte (`max-w-6xl mx-auto`) ortalandı —
+  ilk halinde tam sayfa genişliğine yayılıyordu; (2)
+  Filmler/Favorilerim linkleri `justify-between` yüzünden sayfanın
+  ortasına düşüyordu, kullanıcı bunun yerine logonun hemen sağında
+  gruplanmasını istedi — logo+nav artık tek bir flex grup, giriş/çıkış
+  kısmı `justify-between` ile sağa yaslı.
+- **Sıradaki adım:** Task 8 — Film detay sayfası (giriş kontrollü)
+  (`src/components/MovieDetailGuard.js`, `src/app/film/[id]/page.js`).

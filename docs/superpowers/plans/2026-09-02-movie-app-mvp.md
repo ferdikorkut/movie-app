@@ -636,7 +636,7 @@ git commit -m "AuthContext ve giriş sayfasını ekle"
 - Tüketir: Task 6'dan `useAuth()`.
 - Üretir: her sayfada görünen sabit üst menü.
 
-- [ ] **Step 1: `src/components/Header.js` oluştur**
+- [x] **Step 1: `src/components/Header.js` oluştur**
 
 ```jsx
 "use client";
@@ -650,44 +650,48 @@ export default function Header() {
   const { user, loading } = useAuth();
 
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-gray-900 border-b border-gray-700">
-      <Link href="/" className="text-xl font-bold text-white">
-        🎬 MovieApp
-      </Link>
-      <nav className="flex items-center gap-6">
-        <Link href="/" className="text-gray-300 hover:text-white">
-          Filmler
-        </Link>
-        <Link href="/favorilerim" className="text-gray-300 hover:text-white">
-          Favorilerim
-        </Link>
-      </nav>
-      <div>
-        {loading ? null : user ? (
-          <div className="flex items-center gap-3">
-            <span className="text-white">{user.displayName || user.email}</span>
-            <button
-              onClick={() => signOut(auth)}
-              className="px-3 py-1 rounded bg-gray-700 text-white hover:bg-gray-600"
-            >
-              Çıkış Yap
-            </button>
-          </div>
-        ) : (
-          <Link
-            href="/giris"
-            className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
-          >
-            Giriş Yap
+    <header className="bg-gray-900 border-b border-gray-700">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="text-xl font-bold text-white">
+            🎬 MovieApp
           </Link>
-        )}
+          <nav className="flex items-center gap-6">
+            <Link href="/" className="text-gray-300 hover:text-white">
+              Filmler
+            </Link>
+            <Link href="/favorilerim" className="text-gray-300 hover:text-white">
+              Favorilerim
+            </Link>
+          </nav>
+        </div>
+        <div>
+          {loading ? null : user ? (
+            <div className="flex items-center gap-3">
+              <span className="text-white">{user.displayName || user.email}</span>
+              <button
+                onClick={() => signOut(auth)}
+                className="px-3 py-1 rounded bg-gray-700 text-white hover:bg-gray-600"
+              >
+                Çıkış Yap
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/giris"
+              className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Giriş Yap
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   );
 }
 ```
 
-- [ ] **Step 2: `src/app/layout.js` içine `Header`'ı ekle**
+- [x] **Step 2: `src/app/layout.js` içine `Header`'ı ekle**
 
 ```jsx
 import "./globals.css";
@@ -713,11 +717,11 @@ export default function RootLayout({ children }) {
 }
 ```
 
-- [ ] **Step 3: Tarayıcıda doğrula**
+- [x] **Step 3: Tarayıcıda doğrula**
 
 Ana sayfayı yenile. Beklenen: solda logo, ortada "Filmler"/"Favorilerim" linkleri, sağda giriş durumuna göre "Giriş Yap" veya ad-soyad + "Çıkış Yap" görünür. Giriş yap, çıkış yap, ikisini de dene.
 
-- [ ] **Step 4: Commit at**
+- [x] **Step 4: Commit at**
 
 ```bash
 git add src/components/Header.js src/app/layout.js
