@@ -56,3 +56,14 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   az karmaşıklık olsun diye.
 - Geliştirme sunucusu (`npm run dev`) çalıştığı doğrulandı.
 - **Sıradaki adım:** Task 2 — TMDB API bağlantısı (`lib/tmdb.js`).
+
+## 2026-09-02 — Kullanıcı Kararı: src/ Klasörüne Geçildi
+
+- İlk kararın aksine, `app/` klasörü `src/app/` altına taşındı (kullanıcı
+  daha temiz bir kök dizin istedi).
+- `jsconfig.json` içindeki `@/*` import kısayolu `./src/*`'a güncellendi
+  — yani kod içindeki `@/lib/...`, `@/components/...` importları hiç
+  değişmedi, sadece dosyaların fiziksel konumu değişti.
+- Tasarım belgesi ve uygulama planındaki tüm dosya yolları (`Create:`,
+  `Modify:`, `git add` komutları) `src/` önekiyle güncellendi.
+- **Sıradaki adım:** Task 2 — TMDB API bağlantısı (`src/lib/tmdb.js`).
