@@ -25,7 +25,7 @@
 ## Task 1: Next.js Projesinin Kurulumu
 
 **Files:**
-- Create: proje kökü (`create-next-app` ile otomatik oluşturulacak `app/`, `package.json`, `tailwind.config.js`, `next.config.js`, vb.)
+- Create: proje kökü (`create-next-app` ile otomatik oluşturulacak `src/app/`, `package.json`, `tailwind.config.js`, `next.config.js`, vb.)
 
 **Interfaces:**
 - Üretir: çalışan bir Next.js + Tailwind iskeleti, sonraki tüm task'lar bunun üzerine inşa edilecek.
@@ -61,13 +61,13 @@ git commit -m "Next.js + Tailwind proje iskeletini oluştur"
 
 ---
 
-## Task 2: TMDB API Bağlantısı (`lib/tmdb.js`)
+## Task 2: TMDB API Bağlantısı (`src/lib/tmdb.js`)
 
 **Files:**
 - Create: `.env.local`
 - Modify: `.gitignore` (Next.js'in kendi oluşturduğu `.gitignore` zaten `.env*.local` satırını içerir — sadece doğrula)
-- Create: `lib/tmdb.js`
-- Modify: `app/page.js` (geçici olarak test amaçlı, Task 3'te asıl haline getirilecek)
+- Create: `src/lib/tmdb.js`
+- Modify: `src/app/page.js` (geçici olarak test amaçlı, Task 3'te asıl haline getirilecek)
 
 **Interfaces:**
 - Üretir: `getPopularMovies(page)`, `searchMovies(query, page)`, `getMovieDetails(id)`, `getPosterUrl(posterPath, size)` — Task 3, 4, 8 bu fonksiyonları kullanacak. Her biri TMDB'nin ham JSON cevabını (`{ results: [...] }` veya tek film objesi) döner.
@@ -92,7 +92,7 @@ grep env.local .gitignore
 
 Beklenen: `.env*.local` satırı görünür (create-next-app bunu otomatik ekler).
 
-- [ ] **Step 4: `lib/tmdb.js` dosyasını oluştur**
+- [ ] **Step 4: `src/lib/tmdb.js` dosyasını oluştur**
 
 ```js
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
@@ -135,9 +135,9 @@ export function getPosterUrl(posterPath, size = "w500") {
 }
 ```
 
-- [ ] **Step 5: `app/page.js` içinde geçici olarak dene**
+- [ ] **Step 5: `src/app/page.js` içinde geçici olarak dene**
 
-`app/page.js` içeriğini geçici olarak şuna çevir:
+`src/app/page.js` içeriğini geçici olarak şuna çevir:
 
 ```jsx
 import { getPopularMovies } from "@/lib/tmdb";
@@ -155,8 +155,8 @@ export default async function HomePage() {
 - [ ] **Step 7: Commit at**
 
 ```bash
-git add lib/tmdb.js .env.local app/page.js
-git commit -m "TMDB API bağlantısını kur (lib/tmdb.js)"
+git add src/lib/tmdb.js .env.local src/app/page.js
+git commit -m "TMDB API bağlantısını kur (src/lib/tmdb.js)"
 ```
 
 (Not: `.env.local` `.gitignore` içinde olduğu için gerçekte commit'e girmez, `git add` komutu zararsızdır.)
@@ -166,15 +166,15 @@ git commit -m "TMDB API bağlantısını kur (lib/tmdb.js)"
 ## Task 3: Film Kartı ve Popüler Filmler Listesi
 
 **Files:**
-- Create: `components/MovieCard.js`
-- Create: `components/MovieGrid.js`
-- Modify: `app/page.js`
+- Create: `src/components/MovieCard.js`
+- Create: `src/components/MovieGrid.js`
+- Modify: `src/app/page.js`
 
 **Interfaces:**
 - Tüketir: Task 2'den `getPopularMovies`, `getPosterUrl`.
 - Üretir: `<MovieCard movie={movie} />` (bekler: `movie.id`, `movie.title`, `movie.poster_path`), `<MovieGrid movies={movies} />` — Task 4 ve Task 10 bu bileşenleri tekrar kullanacak.
 
-- [ ] **Step 1: `components/MovieCard.js` oluştur**
+- [ ] **Step 1: `src/components/MovieCard.js` oluştur**
 
 ```jsx
 import Link from "next/link";
@@ -203,7 +203,7 @@ export default function MovieCard({ movie }) {
 }
 ```
 
-- [ ] **Step 2: `components/MovieGrid.js` oluştur**
+- [ ] **Step 2: `src/components/MovieGrid.js` oluştur**
 
 ```jsx
 import MovieCard from "./MovieCard";
@@ -223,7 +223,7 @@ export default function MovieGrid({ movies }) {
 }
 ```
 
-- [ ] **Step 3: `app/page.js` dosyasını gerçek haline getir**
+- [ ] **Step 3: `src/app/page.js` dosyasını gerçek haline getir**
 
 ```jsx
 import MovieGrid from "@/components/MovieGrid";
@@ -248,7 +248,7 @@ export default async function HomePage() {
 - [ ] **Step 5: Commit at**
 
 ```bash
-git add components/MovieCard.js components/MovieGrid.js app/page.js
+git add src/components/MovieCard.js src/components/MovieGrid.js src/app/page.js
 git commit -m "Popüler filmler ızgarasını ekle (MovieCard, MovieGrid)"
 ```
 
@@ -257,14 +257,14 @@ git commit -m "Popüler filmler ızgarasını ekle (MovieCard, MovieGrid)"
 ## Task 4: Film Arama
 
 **Files:**
-- Create: `components/SearchBar.js`
-- Modify: `app/page.js`
+- Create: `src/components/SearchBar.js`
+- Modify: `src/app/page.js`
 
 **Interfaces:**
 - Tüketir: Task 2'den `searchMovies`.
 - Üretir: `<SearchBar defaultValue={query} />` — sadece bu sayfada kullanılır.
 
-- [ ] **Step 1: `components/SearchBar.js` oluştur**
+- [ ] **Step 1: `src/components/SearchBar.js` oluştur**
 
 ```jsx
 "use client";
@@ -302,7 +302,7 @@ export default function SearchBar({ defaultValue = "" }) {
 }
 ```
 
-- [ ] **Step 2: `app/page.js` içinde arama sorgusunu işle**
+- [ ] **Step 2: `src/app/page.js` içinde arama sorgusunu işle**
 
 ```jsx
 import MovieGrid from "@/components/MovieGrid";
@@ -335,7 +335,7 @@ Ana sayfada arama kutusuna bir film adı yaz (örn. "matrix"), Ara butonuna bas.
 - [ ] **Step 4: Commit at**
 
 ```bash
-git add components/SearchBar.js app/page.js
+git add src/components/SearchBar.js src/app/page.js
 git commit -m "Film arama özelliğini ekle"
 ```
 
@@ -344,10 +344,10 @@ git commit -m "Film arama özelliğini ekle"
 ## Task 5: Firebase Projesi ve Kayıt Sayfası
 
 **Files:**
-- Create: `lib/firebase.js`
+- Create: `src/lib/firebase.js`
 - Modify: `.env.local`
 - Modify: `package.json` (firebase paketi eklenecek)
-- Create: `app/kayit/page.js`
+- Create: `src/app/kayit/page.js`
 
 **Interfaces:**
 - Üretir: `auth`, `db` (Task 6, 9, 10 bunları kullanacak).
@@ -373,7 +373,7 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=...
 NEXT_PUBLIC_FIREBASE_APP_ID=...
 ```
 
-- [ ] **Step 4: `lib/firebase.js` oluştur**
+- [ ] **Step 4: `src/lib/firebase.js` oluştur**
 
 ```js
 import { initializeApp, getApps, getApp } from "firebase/app";
@@ -395,7 +395,7 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 ```
 
-- [ ] **Step 5: `app/kayit/page.js` oluştur**
+- [ ] **Step 5: `src/app/kayit/page.js` oluştur**
 
 ```jsx
 "use client";
@@ -473,7 +473,7 @@ export default function KayitPage() {
 - [ ] **Step 7: Commit at**
 
 ```bash
-git add lib/firebase.js app/kayit/page.js package.json package-lock.json
+git add src/lib/firebase.js src/app/kayit/page.js package.json package-lock.json
 git commit -m "Firebase kurulumu ve kayıt sayfasını ekle"
 ```
 
@@ -482,15 +482,15 @@ git commit -m "Firebase kurulumu ve kayıt sayfasını ekle"
 ## Task 6: Giriş Sayfası ve AuthContext
 
 **Files:**
-- Create: `lib/auth-context.js`
-- Create: `app/giris/page.js`
-- Modify: `app/layout.js`
+- Create: `src/lib/auth-context.js`
+- Create: `src/app/giris/page.js`
+- Modify: `src/app/layout.js`
 
 **Interfaces:**
 - Tüketir: Task 5'ten `auth`.
 - Üretir: `AuthProvider` (bileşen), `useAuth()` → `{ user, loading }` — Task 7, 8, 9, 10 bunu kullanacak.
 
-- [ ] **Step 1: `lib/auth-context.js` oluştur**
+- [ ] **Step 1: `src/lib/auth-context.js` oluştur**
 
 ```jsx
 "use client";
@@ -523,7 +523,7 @@ export function useAuth() {
 }
 ```
 
-- [ ] **Step 2: `app/layout.js` içine `AuthProvider`'ı ekle**
+- [ ] **Step 2: `src/app/layout.js` içine `AuthProvider`'ı ekle**
 
 ```jsx
 import "./globals.css";
@@ -545,7 +545,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-- [ ] **Step 3: `app/giris/page.js` oluştur**
+- [ ] **Step 3: `src/app/giris/page.js` oluştur**
 
 ```jsx
 "use client";
@@ -620,7 +620,7 @@ export default function GirisPage() {
 - [ ] **Step 5: Commit at**
 
 ```bash
-git add lib/auth-context.js app/giris/page.js app/layout.js
+git add src/lib/auth-context.js src/app/giris/page.js src/app/layout.js
 git commit -m "AuthContext ve giriş sayfasını ekle"
 ```
 
@@ -629,14 +629,14 @@ git commit -m "AuthContext ve giriş sayfasını ekle"
 ## Task 7: Header (Üst Menü)
 
 **Files:**
-- Create: `components/Header.js`
-- Modify: `app/layout.js`
+- Create: `src/components/Header.js`
+- Modify: `src/app/layout.js`
 
 **Interfaces:**
 - Tüketir: Task 6'dan `useAuth()`.
 - Üretir: her sayfada görünen sabit üst menü.
 
-- [ ] **Step 1: `components/Header.js` oluştur**
+- [ ] **Step 1: `src/components/Header.js` oluştur**
 
 ```jsx
 "use client";
@@ -687,7 +687,7 @@ export default function Header() {
 }
 ```
 
-- [ ] **Step 2: `app/layout.js` içine `Header`'ı ekle**
+- [ ] **Step 2: `src/app/layout.js` içine `Header`'ı ekle**
 
 ```jsx
 import "./globals.css";
@@ -720,7 +720,7 @@ Ana sayfayı yenile. Beklenen: solda logo, ortada "Filmler"/"Favorilerim" linkle
 - [ ] **Step 4: Commit at**
 
 ```bash
-git add components/Header.js app/layout.js
+git add src/components/Header.js src/app/layout.js
 git commit -m "Üst menüyü (Header) ekle"
 ```
 
@@ -729,14 +729,14 @@ git commit -m "Üst menüyü (Header) ekle"
 ## Task 8: Film Detay Sayfası (Giriş Kontrollü)
 
 **Files:**
-- Create: `components/MovieDetailGuard.js`
-- Create: `app/film/[id]/page.js`
+- Create: `src/components/MovieDetailGuard.js`
+- Create: `src/app/film/[id]/page.js`
 
 **Interfaces:**
 - Tüketir: Task 2'den `getMovieDetails`, `getPosterUrl`; Task 6'dan `useAuth()`.
 - Üretir: `/film/[id]` route'u; Task 9'da `FavoriteButton` bu sayfaya eklenecek.
 
-- [ ] **Step 1: `components/MovieDetailGuard.js` oluştur**
+- [ ] **Step 1: `src/components/MovieDetailGuard.js` oluştur**
 
 ```jsx
 "use client";
@@ -781,7 +781,7 @@ export default function MovieDetailGuard({ movie }) {
 }
 ```
 
-- [ ] **Step 2: `app/film/[id]/page.js` oluştur**
+- [ ] **Step 2: `src/app/film/[id]/page.js` oluştur**
 
 ```jsx
 import { getMovieDetails } from "@/lib/tmdb";
@@ -802,7 +802,7 @@ export default async function FilmDetayPage({ params }) {
 - [ ] **Step 4: Commit at**
 
 ```bash
-git add components/MovieDetailGuard.js app/film
+git add src/components/MovieDetailGuard.js src/app/film
 git commit -m "Film detay sayfasını ve giriş kontrolünü ekle"
 ```
 
@@ -811,9 +811,9 @@ git commit -m "Film detay sayfasını ve giriş kontrolünü ekle"
 ## Task 9: Firestore Kurulumu ve Favorilere Ekle/Çıkar
 
 **Files:**
-- Create: `lib/favorites.js`
-- Create: `components/FavoriteButton.js`
-- Modify: `components/MovieDetailGuard.js`
+- Create: `src/lib/favorites.js`
+- Create: `src/components/FavoriteButton.js`
+- Modify: `src/components/MovieDetailGuard.js`
 
 **Interfaces:**
 - Tüketir: Task 5'ten `db`, Task 6'dan `useAuth()`.
@@ -836,7 +836,7 @@ service cloud.firestore {
 
 Bu kural, bir kullanıcının sadece kendi `favorites/{kendi uid'si}` verisine erişebilmesini sağlar.
 
-- [ ] **Step 2: `lib/favorites.js` oluştur**
+- [ ] **Step 2: `src/lib/favorites.js` oluştur**
 
 ```js
 import { doc, setDoc, deleteDoc, getDoc, collection, getDocs } from "firebase/firestore";
@@ -870,7 +870,7 @@ export async function getFavorites(userId) {
 }
 ```
 
-- [ ] **Step 3: `components/FavoriteButton.js` oluştur**
+- [ ] **Step 3: `src/components/FavoriteButton.js` oluştur**
 
 ```jsx
 "use client";
@@ -918,7 +918,7 @@ export default function FavoriteButton({ movie }) {
 }
 ```
 
-- [ ] **Step 4: `components/MovieDetailGuard.js` içine butonu ekle**
+- [ ] **Step 4: `src/components/MovieDetailGuard.js` içine butonu ekle**
 
 `</div>` kapanışından hemen önce (özet paragrafının altına) ekle:
 
@@ -941,7 +941,7 @@ Giriş yapmış halde bir film detayına git. "Favorilere Ekle" butonuna bas. Be
 - [ ] **Step 6: Commit at**
 
 ```bash
-git add lib/favorites.js components/FavoriteButton.js components/MovieDetailGuard.js
+git add src/lib/favorites.js src/components/FavoriteButton.js src/components/MovieDetailGuard.js
 git commit -m "Firestore favoriler ve FavoriteButton ekle"
 ```
 
@@ -950,12 +950,12 @@ git commit -m "Firestore favoriler ve FavoriteButton ekle"
 ## Task 10: Favorilerim Sayfası
 
 **Files:**
-- Create: `app/favorilerim/page.js`
+- Create: `src/app/favorilerim/page.js`
 
 **Interfaces:**
 - Tüketir: Task 6'dan `useAuth()`, Task 9'dan `getFavorites`, Task 3'ten `MovieGrid`.
 
-- [ ] **Step 1: `app/favorilerim/page.js` oluştur**
+- [ ] **Step 1: `src/app/favorilerim/page.js` oluştur**
 
 ```jsx
 "use client";
@@ -1012,7 +1012,7 @@ export default function FavorilerimPage() {
 - [ ] **Step 3: Commit at**
 
 ```bash
-git add app/favorilerim
+git add src/app/favorilerim
 git commit -m "Favorilerim sayfasını ekle"
 ```
 

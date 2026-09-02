@@ -92,27 +92,32 @@ girişi gerekir.
 
 ```
 movie-app/
-├── app/
-│   ├── layout.js
-│   ├── page.js
-│   ├── film/[id]/page.js
-│   ├── favorilerim/page.js
-│   ├── giris/page.js
-│   └── kayit/page.js
-├── components/
-│   ├── Header.js
-│   ├── MovieCard.js
-│   ├── MovieGrid.js
-│   ├── SearchBar.js
-│   └── FavoriteButton.js
-├── lib/
-│   ├── firebase.js
-│   ├── tmdb.js
-│   └── auth-context.js
+├── src/
+│   ├── app/
+│   │   ├── layout.js
+│   │   ├── page.js
+│   │   ├── film/[id]/page.js
+│   │   ├── favorilerim/page.js
+│   │   ├── giris/page.js
+│   │   └── kayit/page.js
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── MovieCard.js
+│   │   ├── MovieGrid.js
+│   │   ├── SearchBar.js
+│   │   └── FavoriteButton.js
+│   └── lib/
+│       ├── firebase.js
+│       ├── tmdb.js
+│       └── auth-context.js
 ├── .env.local
 └── docs/
     └── GUNLUK.md
 ```
+
+(Not: `@/*` import kısayolu `./src/*`'a işaret eder, yani kod içinde
+`@/lib/tmdb` gibi importlar aynı kalır — sadece dosyaların fiziksel
+konumu `src/` altına taşınmıştır.)
 
 ## Proje Günlüğü
 
