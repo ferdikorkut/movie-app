@@ -136,3 +136,16 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   filmlere dönüldüğü doğrulandı.
 - **Sıradaki adım:** Task 5 — Firebase projesi + kayıt sayfası
   (`src/lib/firebase.js`, `src/app/kayit/page.js`).
+
+## 2026-09-02 — Task 5 Tamamlandı: Firebase + Kayıt Sayfası
+
+- Firebase projesi oluşturuldu (`movie-app-693f2`), Email/Password
+  sağlayıcısı etkinleştirildi. Not: Firebase konsolünün sol menüsü
+  yeniden tasarlanmış — "Build" grubu yerine "Product categories"
+  altında "Security" içinde Authentication bulunuyor artık.
+  `firebase` paketi kuruldu, `.env.local`'a `NEXT_PUBLIC_FIREBASE_*`
+  değişkenleri eklendi, `src/lib/firebase.js` ve
+  `src/app/kayit/page.js` oluşturuldu.
+- Tarayıcıda gerçek bir hesap oluşturuldu, çalıştığı doğrulandı.
+- **Sıradaki adım:** Task 6 — Giriş sayfası + AuthContext
+  (`src/lib/auth-context.js`, `src/app/giris/page.js`).

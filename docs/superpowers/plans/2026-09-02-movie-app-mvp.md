@@ -352,17 +352,17 @@ git commit -m "Film arama özelliğini ekle"
 **Interfaces:**
 - Üretir: `auth`, `db` (Task 6, 9, 10 bunları kullanacak).
 
-- [ ] **Step 1: Firebase projesi oluştur**
+- [x] **Step 1: Firebase projesi oluştur**
 
 https://console.firebase.google.com adresinde yeni proje oluştur. Proje içinde "Build > Authentication" bölümüne gidip "Email/Password" sağlayıcısını etkinleştir. Ardından "Project settings > General" içinde bir Web App ekleyip verilen config değerlerini not al. (Manuel adım, tarayıcıda yapılır.)
 
-- [ ] **Step 2: Firebase paketini kur**
+- [x] **Step 2: Firebase paketini kur**
 
 ```bash
 npm install firebase
 ```
 
-- [ ] **Step 3: `.env.local` dosyasına Firebase değerlerini ekle**
+- [x] **Step 3: `.env.local` dosyasına Firebase değerlerini ekle**
 
 ```
 NEXT_PUBLIC_FIREBASE_API_KEY=...
@@ -373,7 +373,7 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=...
 NEXT_PUBLIC_FIREBASE_APP_ID=...
 ```
 
-- [ ] **Step 4: `src/lib/firebase.js` oluştur**
+- [x] **Step 4: `src/lib/firebase.js` oluştur**
 
 ```js
 import { initializeApp, getApps, getApp } from "firebase/app";
@@ -395,7 +395,7 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 ```
 
-- [ ] **Step 5: `src/app/kayit/page.js` oluştur**
+- [x] **Step 5: `src/app/kayit/page.js` oluştur**
 
 ```jsx
 "use client";
@@ -466,11 +466,11 @@ export default function KayitPage() {
 }
 ```
 
-- [ ] **Step 6: Tarayıcıda doğrula**
+- [x] **Step 6: Tarayıcıda doğrula**
 
 `http://localhost:3000/kayit` adresine git, bir hesap oluştur. Beklenen: kayıt sonrası ana sayfaya yönlendirilirsin. Firebase Console > Authentication > Users kısmında yeni kullanıcıyı gör.
 
-- [ ] **Step 7: Commit at**
+- [x] **Step 7: Commit at**
 
 ```bash
 git add src/lib/firebase.js src/app/kayit/page.js package.json package-lock.json
