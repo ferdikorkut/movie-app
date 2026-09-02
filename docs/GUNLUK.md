@@ -183,3 +183,23 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   doğru çalıştı.
 - **Sıradaki adım:** Task 9 — Firestore kurulumu + favorilere
   ekle/çıkar (`src/lib/favorites.js`, `src/components/FavoriteButton.js`).
+
+## 2026-09-02 — İki Vercel Build Hatası Daha Çözüldü
+
+1. **`auth/invalid-api-key`:** `NEXT_PUBLIC_FIREBASE_*` değişkenleri de
+   (TMDB anahtarı gibi) Vercel'e hiç eklenmemişti — eklendi (Config
+   tipinde, çünkü zaten `NEXT_PUBLIC_` olduğu için tarayıcıya gidiyor,
+   gizli değil).
+2. **`useSearchParams() should be wrapped in a suspense boundary`:**
+   `src/app/giris/page.js` içinde `useSearchParams()` kullanan kısım
+   `<Suspense>` ile sarmalanmadan statik olarak prerender edilemiyordu.
+   Form mantığı `GirisForm` adıyla ayrı bir bileşene taşındı,
+   `GirisPage` onu `<Suspense fallback={...}>` içinde render ediyor.
+   Yerel `npm run build` ile doğrulanıp öyle push edildi.
+- Ayrıca öğrenildi: Vercel Deployments listesinde "Redeploy of ..."
+  satırları eski/geçmiş commit'lerin tekrar denemeleri olabiliyor;
+  hangi deployment'ın geçerli olduğunu anlamak için listedeki commit
+  hash'ine/mesajına bakmak gerekiyor, sadece en üstteki satıra
+  güvenmek yeterli değil.
+- **Sıradaki adım:** Task 9 — Firestore kurulumu + favorilere
+  ekle/çıkar (`src/lib/favorites.js`, `src/components/FavoriteButton.js`).
