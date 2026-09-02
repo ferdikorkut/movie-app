@@ -43,3 +43,16 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   10. Favorilerim sayfası
 - **Sıradaki adım:** Task 1'den başlayarak, birlikte adım adım uygulamaya
   geçmek. Her task bittiğinde bu dosyaya not düşülecek.
+
+## 2026-09-02 — Task 1 Tamamlandı: Next.js Kurulumu
+
+- `create-next-app` ile proje kuruldu (JavaScript, Tailwind, ESLint, App
+  Router, src/ klasörü olmadan — tasarım belgesiyle tutarlı).
+- `npx` ile `npm`/`npm install` arasındaki fark, `create-next-app`'in
+  arka planda `react`/`next`'i kalıcı kurduğu ama kendisinin kalıcı
+  kurulmadığı konuşuldu.
+- src/ klasörü kullanılmaması bilinçli bir tercih: tasarım belgesindeki
+  klasör yapısıyla tutarlı olsun ve öğrenme aşamasında bir katman daha
+  az karmaşıklık olsun diye.
+- Geliştirme sunucusu (`npm run dev`) çalıştığı doğrulandı.
+- **Sıradaki adım:** Task 2 — TMDB API bağlantısı (`lib/tmdb.js`).

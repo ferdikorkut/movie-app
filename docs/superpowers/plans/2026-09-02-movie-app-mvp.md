@@ -30,7 +30,7 @@
 **Interfaces:**
 - Üretir: çalışan bir Next.js + Tailwind iskeleti, sonraki tüm task'lar bunun üzerine inşa edilecek.
 
-- [ ] **Step 1: Next.js projesini mevcut klasörde oluştur**
+- [x] **Step 1: Next.js projesini mevcut klasörde oluştur**
 
 Şu an klasörde sadece `.git` ve `docs/` var, bu yüzden `create-next-app` mevcut klasörde çalıştırılabilir:
 
@@ -40,7 +40,7 @@ npx create-next-app@latest . --js --tailwind --eslint --app --no-src-dir --impor
 
 Sorulursa (mevcut dosyalar hakkında) devam etmesini onayla.
 
-- [ ] **Step 2: Geliştirme sunucusunu başlat**
+- [x] **Step 2: Geliştirme sunucusunu başlat**
 
 ```bash
 npm run dev
@@ -48,11 +48,11 @@ npm run dev
 
 Beklenen: Terminalde `http://localhost:3000` adresi görünür.
 
-- [ ] **Step 3: Tarayıcıda doğrula**
+- [x] **Step 3: Tarayıcıda doğrula**
 
 `http://localhost:3000` adresine git. Next.js'in varsayılan karşılama sayfasının Tailwind stilleriyle göründüğünü doğrula.
 
-- [ ] **Step 4: Sunucuyu durdur ve commit at**
+- [x] **Step 4: Sunucuyu durdur ve commit at**
 
 ```bash
 git add -A
