@@ -217,3 +217,20 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   gerçekten oluşup silindiği doğrulandı.
 - **Sıradaki adım:** Task 10 (son task) — Favorilerim sayfası
   (`src/app/favorilerim/page.js`).
+
+## 2026-09-02 — Task 10 Tamamlandı — MVP BİTTİ 🎉
+
+- `src/app/favorilerim/page.js` oluşturuldu, giriş kontrolü ve boş
+  liste mesajı dahil.
+- Yerel `npm run build` ile prerender hatası olmadığı doğrulandı,
+  tarayıcıda uçtan uca test edildi.
+- **`docs/superpowers/plans/2026-09-02-movie-app-mvp.md`'deki 10
+  task'ın tamamı tamamlandı.** MVP artık uçtan uca çalışıyor: herkes
+  popüler filmleri görüp arayabiliyor; giriş yapan kullanıcılar film
+  detayına bakıp favorilerine ekleyip çıkarabiliyor ve favorilerini
+  ayrı bir sayfada görebiliyor.
+- **Sıradaki adım:** Kullanıcıyla birlikte kapanış/branch bitirme
+  akışı (superpowers:finishing-a-development-branch) — ne
+  yapılacağına orada karar verilecek. Sonrasında MVP sonrası fikirler
+  için tasarım belgesinin "Kapsam Dışı" bölümüne bakılabilir (Google
+  girişi, cast/trailer, otomatik testler).

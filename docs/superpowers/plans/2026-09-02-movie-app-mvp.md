@@ -959,7 +959,7 @@ git commit -m "Firestore favoriler ve FavoriteButton ekle"
 **Interfaces:**
 - Tüketir: Task 6'dan `useAuth()`, Task 9'dan `getFavorites`, Task 3'ten `MovieGrid`.
 
-- [ ] **Step 1: `src/app/favorilerim/page.js` oluştur**
+- [x] **Step 1: `src/app/favorilerim/page.js` oluştur**
 
 ```jsx
 "use client";
@@ -1009,11 +1009,11 @@ export default function FavorilerimPage() {
 }
 ```
 
-- [ ] **Step 2: Tarayıcıda doğrula**
+- [x] **Step 2: Tarayıcıda doğrula**
 
 Çıkış yapmış halde `/favorilerim` adresine git → `/giris?redirect=/favorilerim` adresine yönlendirilmelisin. Giriş yap → otomatik olarak favorilerim sayfasına dönmelisin ve az önce eklediğin filmi kart olarak görmelisin. Favorisi olmayan bir hesapla denediğinde "Henüz favori filmin yok" mesajını gör.
 
-- [ ] **Step 3: Commit at**
+- [x] **Step 3: Commit at**
 
 ```bash
 git add src/app/favorilerim
