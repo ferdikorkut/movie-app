@@ -13,6 +13,8 @@ export async function addFavorite(userId, movie) {
     movieId: movie.id,
     title: movie.title,
     posterPath: movie.poster_path,
+    releaseDate: movie.release_date || null,
+    voteAverage: movie.vote_average || null,
     addedAt: Date.now(),
   });
 }

@@ -36,3 +36,8 @@ export function getPosterUrl(posterPath, size = "w500") {
   if (!posterPath) return null;
   return `https://image.tmdb.org/t/p/${size}${posterPath}`;
 }
+
+export function getBackdropUrl(backdropPath, size = "w1280") {
+  if (!backdropPath) return null;
+  return `https://image.tmdb.org/t/p/${size}${backdropPath}`;
+}

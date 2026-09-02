@@ -234,3 +234,93 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   yapılacağına orada karar verilecek. Sonrasında MVP sonrası fikirler
   için tasarım belgesinin "Kapsam Dışı" bölümüne bakılabilir (Google
   girişi, cast/trailer, otomatik testler).
+
+## 2026-09-02 — Görsel/UX Cilalama Turu (MVP Sonrası)
+
+MVP bittikten sonra, aynı gün içinde kullanıcıyla birlikte kapsamlı bir
+görsel/UX geçişi yapıldı. Özet:
+
+**Yapısal/isimlendirme değişiklikleri:**
+- Route isimleri İngilizceye çevrildi: `/giris` → `/login`,
+  `/kayit` → `/signup`, `/favorilerim` → `/favorites` (görünen metinler
+  Türkçe kaldı, sadece URL'ler değişti).
+- Kullanılmayan create-next-app şablon SVG'leri (`public/`) silindi,
+  `public/` klasörü artık yok (gerekirse ileride tekrar oluşturulur).
+- Font: Geist yerine sistem fontları (`system-ui, -apple-system,
+  "Segoe UI", Roboto, sans-serif`) kullanılıyor — kullanıcı tercihi,
+  hem estetik hem "Google'dan font çekilmesin" isteği (not: next/font
+  zaten Google'a runtime isteği atmıyordu, build-time'da indirip kendi
+  sunucumuzdan sunuyordu — ama kullanıcı yine de sistem fontlarını
+  tercih etti).
+
+**Görsel kimlik:**
+- Ana renk mavi → kırmızı (`red-600`) oldu, tüm butonlar tam yuvarlak
+  (`rounded-full`, pill şekli).
+- Header: menü içeriği `max-w-6xl` ile ortalandı (önce tam genişlikti),
+  Filmler/Favorilerim linkleri logonun hemen sağında gruplandı (önce
+  `justify-between` ile ortada duruyordu). Aktif sayfanın linki artık
+  kalın (`usePathname` ile kontrol).
+- Çıkış yapmış kullanıcıya Header'da hem "Giriş Yap" hem "Kayıt Ol"
+  butonu gösteriliyor (önce sadece Giriş Yap vardı).
+- Giriş/Kayıt sayfaları kart görünümüne kavuştu: başlık + açıklama +
+  label'lı input'lar + tam genişlik pill buton + alt kısımda karşı
+  sayfaya link.
+- Tüm butonlara `cursor: pointer` (globals.css, `button:not(:disabled)`
+  kuralı — normalde tarayıcılar `<button>` için bunu vermiyor).
+
+**Film kartları (MovieCard):**
+- Poster altında artık yıl (sol) ve puan (sağ, sarı) aynı satırda.
+- Poster'lar sabit `aspect-[2/3]` + `object-cover` ile hep aynı
+  yükseklikte (önce `h-auto` kullanıyordu, kart hizaları bozuluyordu).
+- Favorilere ekleme, büyük bir metin butonu yerine poster'ın sağ üst
+  köşesinde küçük bir kalp ikonuna dönüştürüldü (dolu kırmızı = favori,
+  beyaz kontur = değil). `FavoriteButton` artık `iconOnly` prop'u
+  alıyor, giriş yapmamış kullanıcıda tıklanınca `/login?redirect=...`a
+  yönlendiriyor (önce sadece giriş yapmış kullanıcılarda görünürdü).
+- Firestore'a favori eklenirken artık `releaseDate`/`voteAverage` de
+  kaydediliyor ki Favorilerim sayfasındaki kartlarda da yıl/puan
+  görünsün (bu değişiklikten önce eklenmiş favorilerde bu bilgi yok,
+  geriye dönük doldurulmadı — çıkarıp tekrar eklemek gerekiyor).
+
+**Favorilerim sayfası:**
+- Başlığın yanında "{sayı} film" rozeti eklendi.
+- Favoriden çıkarma artık sayfayı yenilemeden anında listeden
+  kaldırıyor (`FavoriteButton`'a `onChange` callback'i eklendi,
+  `MovieGrid`/`MovieCard` üzerinden `FavoritesPage`'e kadar taşınıyor).
+
+**Arama kutusu (SearchBar):**
+- Input pill şekline getirildi, içine yazı varken sağda kalın bir
+  SVG "×" temizle ikonu çıkıyor (tıklayınca kutuyu boşaltıp popüler
+  filmlere dönüyor).
+
+**Film detay sayfası:**
+- Genişlik `max-w-4xl` → `max-w-6xl` (diğer sayfalarla aynı), üst
+  satır ana sayfadaki başlık satırıyla birebir aynı yapıda — başlık
+  yerine "← Filmlere Dön" linki var, aynı 28px/kalın stilde.
+  Poster'ın sağ üstünde de aynı kalp ikonu (büyük metin butonu
+  kaldırıldı).
+- Ekstra API isteği gerektirmeyen tüm TMDB alanları eklendi: backdrop
+  banner görseli, slogan (tagline), film süresi, oy sayısı, yapım
+  ülkesi, dil. "Durum" (Released/Post Production) alanı eklenip sonra
+  kullanıcı isteğiyle kaldırıldı (üstteki tarih zaten yeterli
+  görüldü).
+- Bilgiler yeniden sıralandı: başlık → slogan → tek satırda
+  puan/tarih/süre → türler (yuvarlak etiketler/rozet olarak) → yapım
+  ülkesi/dil → özet.
+- Tarih formatı `YYYY-MM-DD` → `GG.AA.YYYY` (`formatDate` yardımcı
+  fonksiyonu).
+
+**Diğer:**
+- Kalp ikonuna `title` özniteliği eklendi (fare üzerinde bekleyince
+  "Favorilere Ekle"/"Favorilerden Çıkar" tarayıcı tooltip'i çıkıyor).
+- Bir CSS mühendislik dersi tekrar işlendi: `globals.css`'e katmansız
+  (`@layer` dışı) bir CSS kuralı eklemek, Tailwind'in katmanlı
+  utility class'larını (specificity'den bağımsız olarak) ezer —
+  koyu tema uygulanırken bu yüzden bir bug yaşanmıştı (bkz. Task 3
+  notu), aynı prensip hatırda tutulmalı.
+
+**Sonuç:** Tüm bu değişiklikler tek bir commit'te toplanıp GitHub'a
+push'landı. Bir sonraki oturumda kaldığımız yer: MVP + görsel cila
+tamamlanmış durumda; sıradaki adımlar için tasarım belgesinin "Kapsam
+Dışı" bölümüne (Google girişi, cast/trailer, otomatik testler) veya
+kullanıcının yeni fikirlerine bakılabilir.
