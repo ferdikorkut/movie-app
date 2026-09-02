@@ -2,7 +2,7 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 
 export async function getPopularMovies(page = 1) {
   const res = await fetch(
-    `${TMDB_BASE_URL}/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=tr-TR&page=${page}`
+    `${TMDB_BASE_URL}/movie/popular?api_key=${process.env.TMDB_API_KEY}&page=${page}`
   );
   if (!res.ok) {
     throw new Error("TMDB API isteği başarısız oldu");
@@ -12,7 +12,7 @@ export async function getPopularMovies(page = 1) {
 
 export async function searchMovies(query, page = 1) {
   const res = await fetch(
-    `${TMDB_BASE_URL}/search/movie?api_key=${process.env.TMDB_API_KEY}&language=tr-TR&query=${encodeURIComponent(
+    `${TMDB_BASE_URL}/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${encodeURIComponent(
       query
     )}&page=${page}`
   );
@@ -24,7 +24,7 @@ export async function searchMovies(query, page = 1) {
 
 export async function getMovieDetails(id) {
   const res = await fetch(
-    `${TMDB_BASE_URL}/movie/${id}?api_key=${process.env.TMDB_API_KEY}&language=tr-TR`
+    `${TMDB_BASE_URL}/movie/${id}?api_key=${process.env.TMDB_API_KEY}`
   );
   if (!res.ok) {
     throw new Error("Film detayı alınamadı");
