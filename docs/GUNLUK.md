@@ -127,3 +127,12 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
 - Artık Vercel'deki canlı site, en son kodla (koyu tema, film ızgarası,
   orijinal başlıklar) uyumlu.
 - **Sıradaki adım:** Task 4 — Film arama (`src/components/SearchBar.js`).
+
+## 2026-09-02 — Task 4 Tamamlandı: Film Arama
+
+- `src/components/SearchBar.js` oluşturuldu, `src/app/page.js` arama
+  sorgusunu (`?q=...`) işleyecek şekilde güncellendi.
+- Tarayıcıda arama yapıp sonuçların geldiği, kutuyu boşaltınca popüler
+  filmlere dönüldüğü doğrulandı.
+- **Sıradaki adım:** Task 5 — Firebase projesi + kayıt sayfası
+  (`src/lib/firebase.js`, `src/app/kayit/page.js`).

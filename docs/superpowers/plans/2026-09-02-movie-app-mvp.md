@@ -264,7 +264,7 @@ git commit -m "Popüler filmler ızgarasını ekle (MovieCard, MovieGrid)"
 - Tüketir: Task 2'den `searchMovies`.
 - Üretir: `<SearchBar defaultValue={query} />` — sadece bu sayfada kullanılır.
 
-- [ ] **Step 1: `src/components/SearchBar.js` oluştur**
+- [x] **Step 1: `src/components/SearchBar.js` oluştur**
 
 ```jsx
 "use client";
@@ -302,7 +302,7 @@ export default function SearchBar({ defaultValue = "" }) {
 }
 ```
 
-- [ ] **Step 2: `src/app/page.js` içinde arama sorgusunu işle**
+- [x] **Step 2: `src/app/page.js` içinde arama sorgusunu işle**
 
 ```jsx
 import MovieGrid from "@/components/MovieGrid";
@@ -328,11 +328,11 @@ export default async function HomePage({ searchParams }) {
 }
 ```
 
-- [ ] **Step 3: Tarayıcıda doğrula**
+- [x] **Step 3: Tarayıcıda doğrula**
 
 Ana sayfada arama kutusuna bir film adı yaz (örn. "matrix"), Ara butonuna bas. Beklenen: URL `?q=matrix` olur ve ilgili sonuçlar listelenir. Kutuyu boşaltıp tekrar aratınca popüler filmlere dönülür.
 
-- [ ] **Step 4: Commit at**
+- [x] **Step 4: Commit at**
 
 ```bash
 git add src/components/SearchBar.js src/app/page.js
