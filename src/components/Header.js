@@ -6,6 +6,11 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useAuth } from "@/lib/auth-context";
 
+const navLinks = [
+  { href: "/", label: "Filmler" },
+  { href: "/favorites", label: "Favorilerim" },
+];
+
 export default function Header() {
   const { user, loading } = useAuth();
   const pathname = usePathname();
@@ -18,26 +23,19 @@ export default function Header() {
             🎬 MovieApp
           </Link>
           <nav className="flex items-center gap-6">
-            <Link
-              href="/"
-              className={
-                pathname === "/"
-                  ? "text-white font-semibold"
-                  : "text-gray-300 hover:text-white"
-              }
-            >
-              Filmler
-            </Link>
-            <Link
-              href="/favorites"
-              className={
-                pathname === "/favorites"
-                  ? "text-white font-semibold"
-                  : "text-gray-300 hover:text-white"
-              }
-            >
-              Favorilerim
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={
+                  pathname === link.href
+                    ? "text-white font-semibold"
+                    : "text-gray-300 hover:text-white"
+                }
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
         <div>

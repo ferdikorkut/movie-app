@@ -324,3 +324,16 @@ push'landı. Bir sonraki oturumda kaldığımız yer: MVP + görsel cila
 tamamlanmış durumda; sıradaki adımlar için tasarım belgesinin "Kapsam
 Dışı" bölümüne (Google girişi, cast/trailer, otomatik testler) veya
 kullanıcının yeni fikirlerine bakılabilir.
+
+## 2026-09-02 — Küçük Refactor: Header Nav Linkleri
+
+- `src/components/Header.js` içindeki iki nav linki (Filmler,
+  Favorilerim) kopya-yapıştır kod olarak yazılmıştı; kullanıcının
+  isteğiyle bir `navLinks` dizisi + `.map()` ile tek bir yerden
+  üretilecek şekilde sadeleştirildi (aktif link kontrolü — `pathname
+  === link.href` — davranışı birebir korunarak).
+- `.map()`, `key` prop'u, ve karşılaştırmanın (`usePathname()` ile
+  gelen `pathname` sabiti vs. her turdaki `link.href`) nasıl çalıştığı
+  kullanıcıya adım adım anlatıldı.
+- Build ile doğrulandı, davranış değişmedi (hangi sayfada hangi link
+  kalın görünüyor, aynı kaldı).
