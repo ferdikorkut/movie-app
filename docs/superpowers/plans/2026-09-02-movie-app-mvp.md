@@ -823,7 +823,7 @@ git commit -m "Film detay sayfasını ve giriş kontrolünü ekle"
 - Tüketir: Task 5'ten `db`, Task 6'dan `useAuth()`.
 - Üretir: `isFavorite(userId, movieId)`, `addFavorite(userId, movie)`, `removeFavorite(userId, movieId)`, `getFavorites(userId)` — Task 10 `getFavorites`'i kullanacak.
 
-- [ ] **Step 1: Firestore'u etkinleştir**
+- [x] **Step 1: Firestore'u etkinleştir**
 
 Firebase Console > Build > Firestore Database > "Create database" (production mode). Ardından "Rules" sekmesine şunu yapıştır ve yayınla:
 
@@ -840,7 +840,7 @@ service cloud.firestore {
 
 Bu kural, bir kullanıcının sadece kendi `favorites/{kendi uid'si}` verisine erişebilmesini sağlar.
 
-- [ ] **Step 2: `src/lib/favorites.js` oluştur**
+- [x] **Step 2: `src/lib/favorites.js` oluştur**
 
 ```js
 import { doc, setDoc, deleteDoc, getDoc, collection, getDocs } from "firebase/firestore";
@@ -874,7 +874,7 @@ export async function getFavorites(userId) {
 }
 ```
 
-- [ ] **Step 3: `src/components/FavoriteButton.js` oluştur**
+- [x] **Step 3: `src/components/FavoriteButton.js` oluştur**
 
 ```jsx
 "use client";
@@ -922,7 +922,7 @@ export default function FavoriteButton({ movie }) {
 }
 ```
 
-- [ ] **Step 4: `src/components/MovieDetailGuard.js` içine butonu ekle**
+- [x] **Step 4: `src/components/MovieDetailGuard.js` içine butonu ekle**
 
 `</div>` kapanışından hemen önce (özet paragrafının altına) ekle:
 
@@ -938,11 +938,11 @@ Dosyanın üstüne import ekle:
 import FavoriteButton from "@/components/FavoriteButton";
 ```
 
-- [ ] **Step 5: Tarayıcıda doğrula**
+- [x] **Step 5: Tarayıcıda doğrula**
 
 Giriş yapmış halde bir film detayına git. "Favorilere Ekle" butonuna bas. Beklenen: buton "Favorilerden Çıkar" olur. Firebase Console > Firestore Database içinde `favorites/{senin uid'in}/movies/{filmId}` yolunda veriyi gör. Tekrar tıkla, favoriden çıktığını doğrula.
 
-- [ ] **Step 6: Commit at**
+- [x] **Step 6: Commit at**
 
 ```bash
 git add src/lib/favorites.js src/components/FavoriteButton.js src/components/MovieDetailGuard.js

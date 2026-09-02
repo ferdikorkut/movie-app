@@ -203,3 +203,17 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   güvenmek yeterli değil.
 - **Sıradaki adım:** Task 9 — Firestore kurulumu + favorilere
   ekle/çıkar (`src/lib/favorites.js`, `src/components/FavoriteButton.js`).
+
+## 2026-09-02 — Task 9 Tamamlandı: Firestore Favoriler
+
+- Firestore veritabanı oluşturuldu (yeni Firebase konsol arayüzünde
+  "Databases & Storage > Firestore"), güvenlik kuralı yayınlandı
+  (`favorites/{userId}/...` sadece kendi userId'si eşleşen kullanıcıya
+  açık).
+- `src/lib/favorites.js` (isFavorite, addFavorite, removeFavorite,
+  getFavorites) ve `src/components/FavoriteButton.js` oluşturuldu,
+  `MovieDetailGuard.js`'e eklendi.
+- Tarayıcıda favoriye ekleme/çıkarma test edildi, Firestore'da veri
+  gerçekten oluşup silindiği doğrulandı.
+- **Sıradaki adım:** Task 10 (son task) — Favorilerim sayfası
+  (`src/app/favorilerim/page.js`).
