@@ -490,7 +490,7 @@ git commit -m "Firebase kurulumu ve kayıt sayfasını ekle"
 - Tüketir: Task 5'ten `auth`.
 - Üretir: `AuthProvider` (bileşen), `useAuth()` → `{ user, loading }` — Task 7, 8, 9, 10 bunu kullanacak.
 
-- [ ] **Step 1: `src/lib/auth-context.js` oluştur**
+- [x] **Step 1: `src/lib/auth-context.js` oluştur**
 
 ```jsx
 "use client";
@@ -523,7 +523,7 @@ export function useAuth() {
 }
 ```
 
-- [ ] **Step 2: `src/app/layout.js` içine `AuthProvider`'ı ekle**
+- [x] **Step 2: `src/app/layout.js` içine `AuthProvider`'ı ekle**
 
 ```jsx
 import "./globals.css";
@@ -545,7 +545,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-- [ ] **Step 3: `src/app/giris/page.js` oluştur**
+- [x] **Step 3: `src/app/giris/page.js` oluştur**
 
 ```jsx
 "use client";
@@ -613,11 +613,11 @@ export default function GirisPage() {
 }
 ```
 
-- [ ] **Step 4: Tarayıcıda doğrula**
+- [x] **Step 4: Tarayıcıda doğrula**
 
 `http://localhost:3000/giris` adresine git, Task 5'te oluşturduğun hesapla giriş yap. Beklenen: ana sayfaya yönlendirilirsin. Yanlış şifreyle denediğinde hata mesajı görünür.
 
-- [ ] **Step 5: Commit at**
+- [x] **Step 5: Commit at**
 
 ```bash
 git add src/lib/auth-context.js src/app/giris/page.js src/app/layout.js

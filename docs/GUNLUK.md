@@ -149,3 +149,14 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
 - Tarayıcıda gerçek bir hesap oluşturuldu, çalıştığı doğrulandı.
 - **Sıradaki adım:** Task 6 — Giriş sayfası + AuthContext
   (`src/lib/auth-context.js`, `src/app/giris/page.js`).
+
+## 2026-09-02 — Task 6 Tamamlandı: Giriş Sayfası + AuthContext
+
+- `src/lib/auth-context.js` (AuthProvider + useAuth) oluşturuldu,
+  `src/app/layout.js` içine sarmalandı.
+- `src/app/giris/page.js` oluşturuldu, `?redirect=` parametresini
+  destekliyor (Task 8/10'da kullanılacak).
+- Tarayıcıda gerçek hesapla giriş yapıldı, ana sayfaya yönlendirildiği
+  doğrulandı.
+- **Sıradaki adım:** Task 7 — Header (üst menü)
+  (`src/components/Header.js`).
