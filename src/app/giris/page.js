@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
-export default function GirisPage() {
+function GirisForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -59,5 +59,13 @@ export default function GirisPage() {
         </a>
       </p>
     </main>
+  );
+}
+
+export default function GirisPage() {
+  return (
+    <Suspense fallback={<p className="text-gray-400 p-6">Yükleniyor...</p>}>
+      <GirisForm />
+    </Suspense>
   );
 }
