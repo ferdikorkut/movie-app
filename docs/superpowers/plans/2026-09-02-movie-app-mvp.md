@@ -740,7 +740,7 @@ git commit -m "Üst menüyü (Header) ekle"
 - Tüketir: Task 2'den `getMovieDetails`, `getPosterUrl`; Task 6'dan `useAuth()`.
 - Üretir: `/film/[id]` route'u; Task 9'da `FavoriteButton` bu sayfaya eklenecek.
 
-- [ ] **Step 1: `src/components/MovieDetailGuard.js` oluştur**
+- [x] **Step 1: `src/components/MovieDetailGuard.js` oluştur**
 
 ```jsx
 "use client";
@@ -785,7 +785,7 @@ export default function MovieDetailGuard({ movie }) {
 }
 ```
 
-- [ ] **Step 2: `src/app/film/[id]/page.js` oluştur**
+- [x] **Step 2: `src/app/film/[id]/page.js` oluştur**
 
 ```jsx
 import { getMovieDetails } from "@/lib/tmdb";
@@ -799,11 +799,11 @@ export default async function FilmDetayPage({ params }) {
 }
 ```
 
-- [ ] **Step 3: Tarayıcıda doğrula (çıkış yapmış halde)**
+- [x] **Step 3: Tarayıcıda doğrula (çıkış yapmış halde)**
 
 Çıkış yap. Ana sayfadan bir filme tıkla. Beklenen: `/giris?redirect=/film/{id}` adresine yönlendirilirsin. Giriş yaptıktan sonra otomatik olarak o filmin detayına dönersin ve poster, başlık, özet, tarih, puan, tür bilgilerini görürsün.
 
-- [ ] **Step 4: Commit at**
+- [x] **Step 4: Commit at**
 
 ```bash
 git add src/components/MovieDetailGuard.js src/app/film

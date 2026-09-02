@@ -173,3 +173,13 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
   kısmı `justify-between` ile sağa yaslı.
 - **Sıradaki adım:** Task 8 — Film detay sayfası (giriş kontrollü)
   (`src/components/MovieDetailGuard.js`, `src/app/film/[id]/page.js`).
+
+## 2026-09-02 — Task 8 Tamamlandı: Film Detay Sayfası
+
+- `src/components/MovieDetailGuard.js` ve `src/app/film/[id]/page.js`
+  oluşturuldu. Giriş yapmamış kullanıcı `/giris?redirect=/film/{id}`'e
+  yönleniyor, giriş sonrası otomatik geri dönüyor.
+- Tarayıcıda hem çıkış hem giriş yapılmış halde test edildi, ikisi de
+  doğru çalıştı.
+- **Sıradaki adım:** Task 9 — Firestore kurulumu + favorilere
+  ekle/çıkar (`src/lib/favorites.js`, `src/components/FavoriteButton.js`).
