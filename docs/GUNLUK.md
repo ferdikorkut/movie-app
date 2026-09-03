@@ -395,3 +395,39 @@ kullanıcının yeni fikirlerine bakılabilir.
   masaüstünde (`sm:flex-row sm:justify-between`) aynı satırda,
   başlık solda rozet sağda — ana sayfadaki başlık/arama kutusu
   düzeniyle birebir aynı desen kullanıldı.
+
+## 2026-09-03 — Oturum Sonu
+
+Bugünkü çalışma burada duraklatıldı. Proje şu an tamamen çalışır ve
+GitHub + Vercel'de güncel durumda (son commit: "Footer ekle, ana sayfa
+ve favorilerim başlıklarının mobil hizalamasını düzelt").
+
+**Şu an elimizde olan tam özellik listesi:**
+- Next.js (App Router, JavaScript) + Tailwind, `src/` klasör yapısı
+- TMDB: popüler filmler, arama, film detayı (backdrop, slogan, süre,
+  oy sayısı, yapım ülkesi, dil dahil)
+- Firebase Auth (e-posta/şifre) — `/login`, `/signup`
+- Firestore favoriler — kalp ikonu (kart + detay sayfası), Favorilerim
+  sayfası (`/favorites`) anlık güncelleniyor
+- Header: aktif link vurgusu, mobilde hamburger menü, scroll yönüne
+  göre gizlenen/görünen sabit (fixed) üst bar
+- Footer: her zaman ekranın altına yapışık
+- Görsel kimlik: kırmızı ana renk, pill butonlar, sistem fontları,
+  mobil uyumlu (responsive) başlık/arama düzenleri
+
+**Sonraki oturum için olası fikirler** (tasarım belgesinin "Kapsam
+Dışı" bölümünden veya bu oturumda ortaya çıkanlardan):
+- Google ile giriş
+- Film detayında oyuncu kadrosu (cast) ve fragman (trailer) —
+  TMDB'ye ekstra istek (`append_to_response=credits,videos`) gerekir
+- Otomatik testler
+- Sayfalama (pagination) — popüler filmler/arama sonuçları şu an
+  sadece TMDB'nin 1. sayfasını gösteriyor
+- Favorilerim sayfasında sıralama/filtreleme
+
+**Nereden devam edilir:** Bu dosyanın en üstünden aşağı okumaya gerek
+yok — sadece bu son bölüm ("Oturum Sonu") ve hemen üstündeki birkaç
+başlık, güncel durumu özetliyor. Kod tabanının tamamı için
+`docs/superpowers/specs/2026-09-02-movie-app-design.md` (orijinal
+tasarım) hâlâ geçerli, ama bugünkü görsel değişikliklerin çoğu o
+belgede yok — bu günlük dosyası daha güncel referans.
