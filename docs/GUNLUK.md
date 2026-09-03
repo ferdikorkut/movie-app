@@ -450,3 +450,22 @@ belgede yok — bu günlük dosyası daha güncel referans.
   endorsed or certified by TMDB."* İstenirse ileride resmi TMDB
   logosu da eklenebilir (https://www.themoviedb.org/about/logos-attribution
   adresinden indirilip paylaşılması gerekiyor).
+
+## 2026-09-03 — Özel 404 Sayfası
+
+- Kullanıcının verdiği bir gif (`public/404.gif`, ~4.2MB) kullanılarak
+  `src/app/not-found.js` özel 404 sayfası oluşturuldu. Next.js App
+  Router'da bu dosya adı özel — `app/not-found.js` adında bir dosya
+  varsa, olmayan bir route'a gidildiğinde Next.js'in kendi varsayılan
+  404 sayfası yerine otomatik olarak bunu kullanır (ekstra bir route
+  tanımlamaya/yönlendirmeye gerek yok).
+- Sayfa: gif + "Sayfa Bulunamadı" başlığı + kısa açıklama + "Ana
+  Sayfaya Dön" butonu (uygulamanın genel kırmızı/pill buton stiliyle
+  tutarlı).
+- `public/` klasörü bu iş için yeniden oluşturuldu (Task 3'ten sonra
+  kullanılmadığı için silinmişti — hatırlatma: statik dosyalar
+  (resim, gif vb.) Next.js'te mutlaka `public/` altında olmalı, `src/`
+  içinde olamaz).
+- Not: gif dosyası ~4.2MB, repo boyutunu biraz büyütüyor ama
+  kullanıcı bilerek bu boyutta bir dosya istedi, optimize/küçültme
+  istenmedi.
