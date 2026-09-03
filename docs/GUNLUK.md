@@ -337,3 +337,24 @@ kullanıcının yeni fikirlerine bakılabilir.
   kullanıcıya adım adım anlatıldı.
 - Build ile doğrulandı, davranış değişmedi (hangi sayfada hangi link
   kalın görünüyor, aynı kaldı).
+
+## 2026-09-03 — Header için Hamburger Menü (Mobil Uyumluluk)
+
+- Kullanıcı, mobilde Header'ın (linkler + giriş/kayıt butonları) tek
+  satıra sığmayıp sıkıştığını fark etti. Çözüm olarak hamburger menü
+  seçildi (basit sıkıştırma yerine).
+- `Header.js`'e `useState` ile `menuOpen` durumu eklendi. `sm:` (640px)
+  altında nav linkleri ve giriş/kayıt bölümü gizlenip yerine bir ☰/×
+  ikon butonu geliyor; tıklanınca altta linkler + giriş/kayıt dikey
+  olarak açılıyor.
+- `useEffect(() => setMenuOpen(false), [pathname])` ile bir linke
+  tıklanıp sayfa değiştiğinde menü otomatik kapanıyor.
+- Giriş/çıkış bölümünün JSX'i (`authSection`) tekrar yazılmasın diye
+  bir değişkende tutulup hem masaüstü hem mobil panelde kullanılıyor
+  (aynı tekrar-önleme mantığı, `navLinks`+`.map()` refactor'üyle
+  paralel).
+- Bu vesileyle React'in "reactivity" (yeniden render) mantığı derinlemesine
+  konuşuldu: bir component sadece kullandığı hook'lar (`usePathname`,
+  `useState` vb.) üzerinden "dinleyici" kazanır; mount olmak ile
+  donuk kalmak aynı şey değildir. Header örneğinde `usePathname()`
+  olmasaydı, menü URL değişikliğinden tamamen habersiz kalırdı.
