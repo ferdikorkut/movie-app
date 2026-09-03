@@ -375,3 +375,23 @@ kullanıcının yeni fikirlerine bakılabilir.
   gizlenmesin.
 - `transition-transform duration-300` ile yumuşak bir kayma animasyonu
   var.
+
+## 2026-09-03 — Footer Eklendi, Mobil Başlık Hizalaması Düzeltildi
+
+- `src/components/Footer.js` oluşturuldu (Header ile aynı görsel stil:
+  `bg-gray-900 border-t`, ortalanmış "© {yıl} MovieApp. Tüm hakları
+  saklıdır." metni). `layout.js`'e eklendi; içerik sarmalayıcısına
+  `flex-1` verilerek, içerik kısa olsa bile footer'ın her zaman
+  ekranın en altına yapışık durması sağlandı (`body`'nin zaten
+  `flex flex-col` olmasından faydalanıldı).
+- Ana sayfada, mobil genişlikte (hamburger menüye geçilen nokta)
+  "Popüler Filmler" başlığı ve arama kutusu sola yaslı duruyordu
+  (flex-col'da `items-center` verilmemişti, varsayılan `stretch`
+  davranışı böyle görünüyordu). `items-center` ve `text-center
+  sm:text-left` eklenerek mobilde ortalandı, masaüstünde eski
+  (sola yaslı, yan yana) hâli korundu.
+- Favorilerim sayfasında da aynı düzen: mobilde başlık ve "{sayı}
+  film" rozeti üst üste ve ortalı (`flex-col items-center`);
+  masaüstünde (`sm:flex-row sm:justify-between`) aynı satırda,
+  başlık solda rozet sağda — ana sayfadaki başlık/arama kutusu
+  düzeniyle birebir aynı desen kullanıldı.

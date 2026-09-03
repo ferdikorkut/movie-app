@@ -46,7 +46,7 @@ export default function FavoritesPage() {
 
   return (
     <main className="max-w-6xl mx-auto p-6">
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
         <h1 className="text-[28px] font-bold text-white">Favorilerim</h1>
         <span className="px-3 py-1 rounded-full bg-gray-800 text-gray-300 text-sm">
           {favorites.length} film

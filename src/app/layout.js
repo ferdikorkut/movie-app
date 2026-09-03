@@ -1,6 +1,7 @@
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "MovieApp",
@@ -13,7 +14,8 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col bg-gray-950 text-white">
         <AuthProvider>
           <Header />
-          <div className="pt-16">{children}</div>
+          <div className="pt-16 flex-1">{children}</div>
+          <Footer />
         </AuthProvider>
       </body>
     </html>

@@ -9,7 +9,7 @@ export default async function HomePage({ searchParams }) {
 
   return (
     <main className="max-w-6xl mx-auto p-6">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+      <div className="flex flex-col items-center sm:flex-row sm:justify-between gap-4 mb-6 text-center sm:text-left">
         <h1 className="text-[28px] font-bold text-white">
           {query ? `"${query}" için arama sonuçları` : "Popüler Filmler"}
         </h1>
