@@ -431,3 +431,22 @@ başlık, güncel durumu özetliyor. Kod tabanının tamamı için
 `docs/superpowers/specs/2026-09-02-movie-app-design.md` (orijinal
 tasarım) hâlâ geçerli, ama bugünkü görsel değişikliklerin çoğu o
 belgede yok — bu günlük dosyası daha güncel referans.
+
+## 2026-09-03 — README Güncellendi, Gizlilik Taraması, TMDB Atıfı
+
+- `README.md`, create-next-app'in varsayılan şablon metninden gerçek
+  bir proje özetine çevrildi: kullanılan teknolojiler, hangi siteden
+  ne alındığı (TMDB, Firebase, Vercel, GitHub), gerekli ortam
+  değişkenleri, yerelde çalıştırma talimatları.
+- Kullanıcının isteğiyle tüm git geçmişi hassas bilgi (API anahtarları,
+  şifreler, e-posta) sızıntısına karşı tarandı — **hiçbir sızıntı
+  bulunmadı**, `.env.local` hiçbir commit'e hiç girmemiş. Sadece
+  teknik olarak "sır" sayılmayan ama gereksiz olan Firebase proje
+  ID'si README/günlükten temizlendi.
+- **TMDB atıf zorunluluğu:** TMDB'nin kullanım şartları, API'sini
+  kullanan **her uygulamanın** (kişisel/ticari fark etmeksizin)
+  kaynak göstermesini şart koşuyor. `Footer.js`'e standart atıf
+  metni eklendi: *"This product uses the TMDB API but is not
+  endorsed or certified by TMDB."* İstenirse ileride resmi TMDB
+  logosu da eklenebilir (https://www.themoviedb.org/about/logos-attribution
+  adresinden indirilip paylaşılması gerekiyor).
