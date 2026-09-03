@@ -139,7 +139,7 @@ Bu dosya, projede nerede kaldığımızı hatırlamak için tutulur. Her
 
 ## 2026-09-02 — Task 5 Tamamlandı: Firebase + Kayıt Sayfası
 
-- Firebase projesi oluşturuldu (`movie-app-693f2`), Email/Password
+- Firebase projesi oluşturuldu, Email/Password
   sağlayıcısı etkinleştirildi. Not: Firebase konsolünün sol menüsü
   yeniden tasarlanmış — "Build" grubu yerine "Product categories"
   altında "Security" içinde Authentication bulunuyor artık.

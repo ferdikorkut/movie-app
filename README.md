@@ -25,7 +25,7 @@ favori film listesi özellikleri olan bir film keşif uygulaması.
 ## Bu Proje İçin Açılan Hesaplar / Projeler
 
 - **TMDB hesabı** — API anahtarı buradan alındı (Settings > API)
-- **Firebase projesi** — adı: `movie-app-693f2`, Authentication (Email/Password) ve Firestore Database etkinleştirildi
+- **Firebase projesi** — Authentication (Email/Password) ve Firestore Database etkinleştirildi
 - **Vercel projesi** — GitHub reposuna (`ferdikorkut/movie-app`) bağlı, `main` branch'ine her push otomatik canlıya yansır
 
 ## Ortam Değişkenleri (.env.local)
