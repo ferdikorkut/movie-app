@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MovieApp
 
-## Getting Started
+TMDB API'sinden film verisi çeken, Firebase ile kullanıcı girişi ve
+favori film listesi özellikleri olan bir film keşif uygulaması.
 
-First, run the development server:
+## Kullandığımız Teknolojiler
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js** (App Router, JavaScript) — web uygulamasının altyapısı
+- **Tailwind CSS** — stil/tasarım
+- **Firebase Auth** — kullanıcı kayıt/giriş (e-posta + şifre)
+- **Firebase Firestore** — favori filmlerin saklandığı veritabanı
+- **TMDB API** (themoviedb.org) — popüler filmler, arama, film detayı
+- **Vercel** — sitenin canlı yayınlandığı yer (deployment)
+- **GitHub** — kodun saklandığı depo (version control)
+
+## Hangi Siteden Ne Aldık
+
+| Site | Ne İçin Kullandık | Ücret |
+|---|---|---|
+| [themoviedb.org](https://www.themoviedb.org) | Film verisi çeken API hizmeti | Ücretsiz |
+| [console.firebase.google.com](https://console.firebase.google.com) | Kullanıcı girişi (Authentication) + favori veritabanı (Firestore) | Ücretsiz (Spark planı) |
+| [vercel.com](https://vercel.com) | Sitenin canlı yayınlanması, GitHub'a her push'ta otomatik güncellenir | Ücretsiz |
+| [github.com](https://github.com) | Kodun yedeklendiği/saklandığı yer | Ücretsiz |
+
+## Bu Proje İçin Açılan Hesaplar / Projeler
+
+- **TMDB hesabı** — API anahtarı buradan alındı (Settings > API)
+- **Firebase projesi** — adı: `movie-app-693f2`, Authentication (Email/Password) ve Firestore Database etkinleştirildi
+- **Vercel projesi** — GitHub reposuna (`ferdikorkut/movie-app`) bağlı, `main` branch'ine her push otomatik canlıya yansır
+
+## Ortam Değişkenleri (.env.local)
+
+Proje yerelde çalışırken şu değerlere ihtiyaç duyuyor (bu dosya git'e
+hiç gitmez, sadece bilgisayarında durur):
+
+```
+TMDB_API_KEY=...
+
+NEXT_PUBLIC_FIREBASE_API_KEY=...
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=...
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=...
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=...
+NEXT_PUBLIC_FIREBASE_APP_ID=...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aynı değerler, canlı site çalışsın diye Vercel'de de **Settings >
+Environment Variables** kısmına ayrıca eklenmiştir.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Yerelde Çalıştırma
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Sonra tarayıcıda [http://localhost:3000](http://localhost:3000) adresini aç.
 
-To learn more about Next.js, take a look at the following resources:
+## Daha Detaylı Notlar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `docs/GUNLUK.md` — projenin gün gün ilerleme günlüğü: hangi kararın
+  neden alındığı, karşılaşılan hatalar ve çözümleri
+- `docs/superpowers/specs/2026-09-02-movie-app-design.md` — orijinal
+  tasarım belgesi
+- `docs/superpowers/plans/2026-09-02-movie-app-mvp.md` — adım adım
+  uygulama planı
