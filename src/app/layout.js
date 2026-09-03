@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col bg-gray-950 text-white">
         <AuthProvider>
           <Header />
-          {children}
+          <div className="pt-16">{children}</div>
         </AuthProvider>
       </body>
     </html>

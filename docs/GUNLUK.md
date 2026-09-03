@@ -358,3 +358,20 @@ kullanıcının yeni fikirlerine bakılabilir.
   `useState` vb.) üzerinden "dinleyici" kazanır; mount olmak ile
   donuk kalmak aynı şey değildir. Header örneğinde `usePathname()`
   olmasaydı, menü URL değişikliğinden tamamen habersiz kalırdı.
+
+## 2026-09-03 — Scroll Yönüne Göre Gizlenen Header
+
+- Kullanıcı "aşağı kaydırınca header kaybolsun, yukarı kaydırınca
+  gelsin" deseni istedi (YouTube mobil / Medium tarzı).
+- `Header.js`: `hidden` state'i + `lastScrollY` ref'i eklendi,
+  `window` üzerine `scroll` event listener kondu. 80px'in altında
+  her zaman görünür; üstünde, aşağı kaydırılıyorsa gizleniyor
+  (`-translate-y-full`), yukarı kaydırılıyorsa görünüyor
+  (`translate-y-0`). Mobil menü açıkken gizleme devre dışı.
+- Header `fixed top-0 inset-x-0 z-50` yapıldı (sabit konumlama
+  olmadan kaydırma animasyonu anlamsız kalırdı). Bunun sonucu olarak
+  `layout.js`'de `{children}` bir `pt-16` (64px, header'ın sabit
+  yüksekliği) sarmalayıcıya alındı ki içerik header'ın altında
+  gizlenmesin.
+- `transition-transform duration-300` ile yumuşak bir kayma animasyonu
+  var.

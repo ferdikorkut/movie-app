@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut } from "firebase/auth";
@@ -16,10 +16,30 @@ export default function Header() {
   const { user, loading } = useAuth();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (menuOpen) return;
+      const currentY = window.scrollY;
+      if (currentY < 80) {
+        setHidden(false);
+      } else if (currentY > lastScrollY.current) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = currentY;
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
 
   const authSection = loading ? null : user ? (
     <div className="flex items-center gap-3">
@@ -49,8 +69,12 @@ export default function Header() {
   );
 
   return (
-    <header className="bg-gray-900 border-b border-gray-700">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 bg-gray-900 border-b border-gray-700 transition-transform duration-300 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto h-16 flex items-center justify-between px-6">
         <div className="flex items-center gap-8">
           <Link href="/" className="text-xl font-bold text-white">
             🎬 MovieApp
